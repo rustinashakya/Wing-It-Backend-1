@@ -1,0 +1,109 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Verify your email
+    style.
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f4f5f7;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        color: #1a1a1a;
+      }
+      .wrapper {
+        width: 100%;
+        padding: 32px 0;
+      }
+      .container {
+        max-width: 480px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #e5e7eb;
+      }
+      .header {
+        background-color: #4f46e5;
+        padding: 24px 32px;
+        text-align: center;
+      }
+      .header img {
+        height: 32px;
+      }
+      .header h1 {
+        color: #ffffff;
+        font-size: 18px;
+        margin: 0;
+      }
+      .body {
+        padding: 32px;
+      }
+      .body h2 {
+        font-size: 20px;
+        margin: 0 0 16px;
+      }
+      .body p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: #4b5563;
+        margin: 0 0 16px;
+      }
+      .button-wrapper {
+        text-align: center;
+        margin: 32px 0;
+      }
+      .button {
+        display: inline-block;
+        background-color: #4f46e5;
+        color: #ffffff !important;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 14px 32px;
+        border-radius: 6px;
+      }
+      .fallback-link {
+        font-size: 13px;
+        color: #6b7280;
+        word-break: break-all;
+        margin-top: 8px;
+      }
+      .divider {
+        border-top: 1px solid #e5e7eb;
+        margin: 24px 0;
+      }
+      .expiry {
+        font-size: 13px;
+        color: #9ca3af;
+      }
+      .footer {
+        text-align: center;
+        padding: 24px 32px;
+        font-size: 12px;
+        color: #9ca3af;
+      }
+  body
+    .wrapper
+      .container
+        .header
+          if logoUrl
+            img(src=logoUrl alt=appName)
+          else
+            h1= appName
+        .body
+          h2 Confirm your email address
+          p Hi #{name},
+          p Thanks for signing up for #{appName}! Please confirm that #{email} is your email address by clicking the button below.
+          .button-wrapper
+            a.button(href=verificationUrl) Verify Email
+          p.fallback-link If the button doesn't work, copy and paste this link into your browser:
+            br
+            a(href=verificationUrl style="color:#4f46e5;")= verificationUrl
+          .divider
+          p.expiry This link will expire in #{expiryHours || 24} hours. If you didn't create an account with #{appName}, you can safely ignore this email.
+        .footer
+          p © #{currentYear} #{appName}. All rights reserved.
+          if supportEmail
+            p Need help? Contact us at #{supportEmail}
