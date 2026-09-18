@@ -1,12 +1,9 @@
 const express = require('express')
-const environments = require('./config/environment')
-const routes = require('./routes/index')
-const errorHandler = require("./utils/errorHandler")
+const environments = require('./src/config/environment')
+const routes = require('./src/routes/index')
+const errorHandler = require("./src/utils/errorHandler")
 const app = express()
-
-
-
-const connectDB = require("./config/datbase")
+const connectDB = require("./src/config/datbase")
 
 
 
@@ -17,12 +14,12 @@ app.use(express.json())
 
 
 
-app.get('/health', (req, res) => {
-    res.json({
-        status: 'OK',
-        message: 'Server Running'
-    })
-})
+// app.get('/health', (req, res) => {
+//     res.json({
+//         status: 'OK',
+//         message: 'Server Running'
+//     })
+// })
 
 app.use("/api/", routes)
 
@@ -30,8 +27,6 @@ app.use("/api/", routes)
 
 // error handle middleware
 app.use(errorHandler)
-
-
 
 
 
