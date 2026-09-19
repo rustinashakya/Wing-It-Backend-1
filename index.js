@@ -2,13 +2,12 @@ const express = require('express')
 const environments = require('./src/config/environment')
 const routes = require('./src/routes/index')
 const errorHandler = require("./src/utils/errorHandler")
-const app = express()
 const connectDB = require("./src/config/datbase")
 
+const app = express()
 
 
 connectDB()
-
 
 app.use(express.json())
 
