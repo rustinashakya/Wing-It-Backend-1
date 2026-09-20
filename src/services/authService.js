@@ -11,7 +11,7 @@ const environments = require("../config/environment");
 // const cookies = new Cookies()
 class AuthService {
     register = async (payload) => {
-        const data = payload
+        // const data = payload
 
         const user = await User.find({
             email: payload.email

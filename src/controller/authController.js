@@ -16,7 +16,7 @@ class AuthController {
                 maxAge: 24 * 60 * 60 * 1000, // 1 day
                 path: '/',
             });
-            cookies.set('refreshToken', data.accessToken, {
+            cookies.set('refreshToken', data.refreshToken, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === 'production',
                 sameSite: 'lax',
@@ -45,7 +45,7 @@ class AuthController {
                 maxAge: 24 * 60 * 60 * 1000, // 1 day
                 path: '/',
             });
-            cookies.set('refreshToken', data.data.accessToken, {
+            cookies.set('refreshToken', data.data.refreshToken, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV === 'production',
                 sameSite: 'lax',

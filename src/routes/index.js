@@ -1,4 +1,4 @@
-const { Router } = require('express')
+const { Router } = require('express') //destructuring
 const authRoutes = require('./auth')
 const userRoutes = require('./user')
 
